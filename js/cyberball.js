@@ -146,7 +146,7 @@
 				while (new Date() - ct < wait) { };
 				keysDown={};
 				
-				var ft = (round==2 && trialCnt>8) ? 0.5 : 0
+				var ft = (round==2 && trialCnt>8) ? ftval : 0
 
 				var throwChoice = Math.random() - ft;
 				if (throwChoice<0.5) {
