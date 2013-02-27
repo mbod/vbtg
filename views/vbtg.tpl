@@ -1,10 +1,15 @@
 <html>
 	<head>
 
-		<title>Virtual Ball-Tossing Game</title>
+		<title>Interactive Mental Visualization</title>
 
 		<script src="js/jquery-1.7.min.js"></script>
 		<script src="js/cyberball.js"></script>
+		
+		<meta charset="utf-8"/>
+		
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">		
 
 		<style type="text/css">
 			.page { display: none;
@@ -17,9 +22,12 @@
 			       font-family: Verdana, Helvetica, Arial, Sans serif;
 			}
 
-			h1 { text-align: center; }						
+			h2 { text-align: center; }						
 
 			#canvas { margin-left: 15%; margin-top: 50px; }
+			
+			.t1 td { padding-bottom: 20px; padding-right: 20px; 
+						 }
 
 		</style>
 
@@ -110,39 +118,48 @@
 
 	<div>
 
-		<h1 id="vbtg-title">Virtual Ball-Tosing Game</h1>
+		<h2 id="vbtg-title">Interactive Mental Visualization Game</h2>
 	</div>
 
 
 	<div class="page" id="p1">
 
-		<p>MENTAL VISUALIZATION PRACTICE GAME</p>
-
-		<p>This study is testing the effects of mental visualization on social recall ability, like remembering information about your friends, family, and acquaintances. Thus, we need you to practice your mental visualization skills to prepare for the recall task. We have found that the best way to do this is to have you play an online ball tossing game with other participants who are logged on to the system at the same time.</p>
-
-		<p>In a few moments, you will begin playing a ball-tossing game with other students over our network. Several universities in the state of Michigan are taking part in a collaborative investigation of the effects of mental visualization on task performance, with college students participating at several different Universities around the state of Michigan.</p>
-
-		<p>The practice game is very simple and only lasts a few minutes. When the ball is tossed to you, simply press either the "1" key to throw to the player on your left or the "2" key for to throw to the player on your right. When the game is over, the experimenter will give you additional instructions.</p>
-
-		<p>This task is not about performance. The important thing is that you MENTALLY VISUALIZE the entire experience so you are ready for the later task. Imagine what the others look like. What sort of people are they? Where are you playing? Is it warm and sunny or cold and rainy? Create in your mind a complete mental picture of what might be going on if you were playing this game in real life.</p>
-
-		<p>Okay, ready to begin? <input type="button" onclick="flip()" value="Yes I'm ready!"/></p> 
-
+		<div class="row-fluid">
+			<div class="span8 offset2">
+			<p>This study is testing the effects of mental visualization on social recall ability, like remembering information about your friends, family, and acquaintances. Thus, we need you to practice your mental visualization skills to prepare for the recall task. Research has shown that the best way to do this is to have you play an online ball tossing game with other participants who are logged on to the system at the same time.</p>
+	
+			<p>In a few moments, you will begin playing a ball-tossing game with other students over our network. College students from a number of Midwestern universities are taking part in a collaborative investigation of the effects of mental visualization on task performance.</p>
+	
+			<p>The practice game is very simple and only lasts a few minutes. When the ball is tossed to you, simply press either the "1" key to throw to the player on your left or the "2" key for to throw to the player on your right. When the game is over, the experimenter will give you additional instructions.</p>
+	
+			<p>This task is not about performance. The important thing is that you MENTALLY VISUALIZE the entire experience so you are ready for the later task. Imagine what the others look like. What sort of people are they? Where are you playing? Is it warm and sunny or cold and rainy? Create in your mind a complete mental picture of what might be going on if you were playing this game in real life.</p>
+			<p>&#160;</p>
+			<p>&#160;</p>
+			<p style="text-align: center;">Okay, ready to begin? <input type="button" onclick="flip()" value="Yes I'm ready!"/></p> 
+			</div>
+		</div>
 
 	</div>
 
 
 
 	<div class="page" id="p2">
-		<p>Please enter your first name and click to join the online game  <input id="playerName" type="text" size="20" value=""></input><input type="button" onclick="checkName()" value="Join the game"/></p>
+		<div class="row-fulid">
+		<div class="offset3 span7">
+		<p>Please enter your first name and click to join the online game
+		<br/><br/>  <input id="playerName" type="text" size="20" value="" style="margin-right: 20px"></input><input type="button" onclick="checkName()" value="Join the game"/></p>
+		</div>
+		</div>
 		
 	</div>
 
 
 	<div class="page" id="p3">
 
-		<div>
-			<table>
+	
+		<div class="row-fluid">
+			<div class="span5 offset3">
+			<table class="t1">
 				<tbody>
 					<tr>
 						<td>Player 1</td>
@@ -159,7 +176,11 @@
 			
 				</tbody>
 			</table>
+			
+			
 			<h3 id="letsplay">Let's play! <img src="imgs/ajax-loader.gif"/></h3> 
+			</div>
+			</div>
 		</div>
 
 

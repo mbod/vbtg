@@ -25,6 +25,13 @@ male_names = "Joe, Justin, Will, Matt, Steve, Frank, Jason, Craig, Josh, Dave".s
 
 
 @route('/')
+def index():
+	pID = request.query.pID
+        cnum = int(request.query.cnum)
+	return template('index', pID=pID, cnum=cnum)
+
+
+@route('/lobby')
 def task():
 	pID = request.query.pID
 	cnum = int(request.query.cnum)
@@ -42,8 +49,8 @@ def task():
 
 @route('/<filename:re:.*\.(js|css|jpg|png|bmp|gif)>')
 def static(filename):
-	if filename[-4:] in ('.jpg','.png'):
-		task+='/img'
+	#if filename[-4:] in ('.jpg','.png'):
+	#	task+='/img'
 		
 	return static_file(filename, root='.')
 

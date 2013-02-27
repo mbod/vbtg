@@ -1,8 +1,8 @@
 
 		var startTime=0;
-		var maxTime=178;
+		var maxTime=88;
 		var trialCnt=0;
-		var maxTrials=128;
+		var maxTrials=65;
 		var context;
 		var loop;
 		var idx=0;
