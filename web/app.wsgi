@@ -14,7 +14,7 @@ male_names = "Joe, Justin, Will, Matt, Steve, Frank, Jason, Craig, Josh, Dave".s
 
 
 # ft value
-# 0.5 = unfair 
+# 0.5 = unfair
 # 0 = fair
 
 # cnum
@@ -51,7 +51,7 @@ def task():
 def static(filename):
 	#if filename[-4:] in ('.jpg','.png'):
 	#	task+='/img'
-		
+
 	return static_file(filename, root='.')
 
 
