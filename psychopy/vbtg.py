@@ -1,13 +1,18 @@
 
 # Virtual Ball Toss Game 
 # version of 'Cyberball' - https://www.ncbi.nlm.nih.gov/pubmed/16817529
-# for PsychoPy (using Python2.7) 
+# for PsychoPy (using Python2.7+) 
 
 # developed by for use as an fMRI task by the Communication Neuroscience Lab
 # original Matlab implementation by Josh Carp
 # PsychoPy Python version by Matt O'Donnell (mbod@asc.upenn.edu)
 
+# updated/refactored and tested on PsychoPy 2021.2.3
+# 12/17/21 mbod@asc.upenn.edu
+
+from __future__ import absolute_import, division, print_function
 from psychopy import visual, core, logging, event,data, gui
+
 import sys
 import random
 import csv
@@ -58,12 +63,13 @@ else:
     sys.exit()
  
  
-players=[["Justin", "Will"], 
-                ["Nick", "Robin"], 
-                ["John", "Andrew"]]
+players=[
+        ["Justin", "Will"],  # Names of Room 0 players
+        ["Nick", "Robin"],   # Names of Room 1 players
+        ["John", "Andrew"]   # Names of Room 2 players
+        ]
 
-player1_name = players[room][0]
-player3_name = players[room][1]
+player1_name, player3_name = players[room]
 
   
 ################
@@ -72,15 +78,18 @@ player3_name = players[room][1]
 paths = [d for d in os.listdir('images') if d[1:3]=='to']
 throw={}
 for p in paths:
-    throw[p]=[f for f in os.listdir('images/%s' % p) if f.endswith('.bmp')]
-
+    imgs = [f for f in os.listdir('images/%s' % p) if f.endswith('.bmp')]
+    # sort image filenames to get correct sequence of throw steps
+    throw[p]= sorted(imgs)
  
 ################
 # Set up window #
 ################
 
-useFullScreen=False # True
-win = visual.Window([800,600], monitor="testMonitor", units="deg", fullscr=useFullScreen, allowGUI=False, color="#FFFFFF")
+useFullScreen=True # True
+win = visual.Window(monitor="testMonitor", 
+                    units="deg", fullscr=useFullScreen, 
+                    allowGUI=False, color="#FFFFFF")
 
 ################
 # Set up stimuli #
@@ -95,7 +104,7 @@ instr_p3 = visual.TextStim(win, text="",color="#000000", pos=(-6, -3), height=0.
 p1_tick = visual.TextStim(win,text="", color="#000000", pos=(3.5,3.15), alignHoriz="left")
 p3_tick = visual.TextStim(win,text="", color="#000000", pos=(3.5,-2.85), alignHoriz="left")
 
-players = visual.SimpleImageStim(win, image='images/start.bmp')
+players = visual.ImageStim(win, image='images/start.bmp')
 
 round_fix = visual.TextStim(win, text="", height=1.5, color="#000000")
 
@@ -288,7 +297,7 @@ try:
     ser.write('255')
     ser.close()
 except:
-    print "SCANNER NOT TRIGGERED"
+    print("SCANNER NOT TRIGGERED")
     pass
 # end of trigger code
 
